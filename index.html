@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Night</title>
+    <link href="https://fonts.googleapis.com/css?family=Tangerine&display=swap" rel="stylesheet">
+<style>
+    body{
+        background-color: black;
+    }
+    #container{
+        background-image: linear-gradient(to top, darkblue, black);
+        height: 600px;
+        width: 1400px;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        opacity: 0;
+        border-radius: 1%;
+    }
+    #text{
+        color: rgb(113, 93, 226);
+        font-size: 6em;
+        margin-left: 40%;
+        background-color: black;
+        font-family: 'Tangerine', cursive;
+        text-shadow: 1px 2px 1px rgb(135, 122, 208)
+    }
+    #star1{
+
+        left: 200px;
+        top: 15px;
+    }
+    #star2{
+
+        top: 85px;
+        right: 485px;
+    }
+    #star3{
+
+        top: 43px;
+        left: 505px;
+    }
+    #star4{
+
+        top: 20px;
+        right: 200px;
+    }
+    #star5{
+
+        top: 130px;
+        left: 355px;
+    }
+    #star6{
+
+        top: 75px;
+        right: 70px;
+    }
+    #star7{
+
+        top: 10px;
+        left: 60px;
+    }
+    #star8{
+
+        top: 80px;
+        left: 125px;
+    }
+    #star9{
+
+        top: 12px;
+        right: 326px;
+    }
+    #star10{
+
+        top: 120px;
+        right: 278px;
+    }
+    #star11{
+
+        top: 81px;
+        left: 277px;
+    }
+    #star12{
+
+        top: 29px;
+        right: 525px;
+    }
+    #star13{
+
+        top: 157px;
+        left: 30px;
+    }
+    #star14{
+
+        top: 125px;
+        right: 624px;
+    }
+    #star15{
+
+        top: 158px;
+        right: 135px;
+    }
+    #moon{
+        background-image: linear-gradient(whitesmoke, lightgrey, grey, 0.2);
+        width: 100px;
+        height: 100px;
+        border-radius: 100%;
+        position: absolute;
+        bottom: 20px;
+        left: 5px;
+        opacity: 0;
+        box-shadow: 5px 7px 5px 1px whitesmoke;
+    }
+    #shooter{
+        width: 15px;
+        height: 3px;
+        background-color: white;
+        position: absolute;
+        top: 30px;
+        right: -10px;
+        opacity: 0;
+        box-shadow: 3px 3px 5px whitesmoke;
+    }
+    .stars{
+        background-color: gold;
+        border-radius: 100%;
+        position: absolute;
+    }
+    .stargroup1{
+        width: 7px;
+        height: 7px;
+    }
+    .stargroup2{
+        width: 10px;
+        height: 10px;
+    }
+</style>
+</head>
+<body>
+    <h1 id="text">Night</h1>
+    <div id="container">
+        <div id="star1" class="stars stargroup1"></div>
+        <div id="star2" class="stars stargroup2"></div>
+        <div id="star3" class="stars stargroup1"></div>
+        <div id="star4" class="stars stargroup2"></div>
+        <div id="star5" class="stars stargroup1"></div>
+        <div id="star6" class="stars stargroup2"></div>
+        <div id="star7" class="stars stargroup1"></div>
+        <div id="star8" class="stars stargroup2"></div>
+        <div id="star9" class="stars stargroup1"></div>
+        <div id="star10" class="stars stargroup2"></div>
+        <div id="star11" class="stars stargroup1"></div>
+        <div id="star12" class="stars stargroup2"></div>
+        <div id="star13" class="stars stargroup1"></div>
+        <div id="star14" class="stars stargroup2"></div>
+        <div id="star15" class="stars stargroup1"></div>
+        <div id="moon"></div>
+        <div id="shooter"></div>
+    </div>
+
+<script src="anime.min.js"></script>
+<script>
+
+anime({
+targets: '#container',
+opacity: 1, 
+delay: 6000,
+backgroundColor: '#FFF'
+
+})
+
+// ---------------------------------------------------
+                                // Stjärnor
+// ---------------------------------------------------
+anime({
+targets: '.stargroup1',
+loop: true,
+background: '#FFFBC6',
+duration: 2000,
+boxShadow: '1px 1px 1px gold',
+
+
+})
+anime({
+targets: '.stargroup2',
+loop: true,
+background: '#FFFBC6',
+duration: 1500,
+boxShadow: '2px 1px 2px gold',
+
+})
+
+
+// ---------------------------------------------------
+                                    // Måne
+// ---------------------------------------------------
+
+anime({
+targets: '#moon',
+delay: 3000,
+keyframes: [
+    {opacity: '0', duration: 5000},
+    {opacity: '1', duration: 30000},
+    {opacity: '0', duration: 10000},
+],
+loop: 4,
+duration: 60000,
+translateX: [
+    {
+        value: 150, 
+    },{
+        value: 800,
+    }
+],
+translateX: 1200,
+translateY: [
+    {
+        value: -400,
+    },{
+        value: -10
+    }
+],
+easing: 'easeInOutCubic',
+})
+
+// -----------------------------------------------------
+                                // Stjärnfall
+// -----------------------------------------------------
+anime({
+    targets: '#shooter',
+    translateX: -1100, 
+    duration: 400, 
+    delay: 15000,
+    translateY: 100,
+    keyframes: [
+        {opacity: '1', delay: 15000},
+        {opacity: '0', duration: 350},
+    ],
+    easing: 'easeInSine',
+    loop: 10
+})
+    anime({
+        targets: '#text',
+        opacity: 0,
+        delay: 5000
+    })
+
+</script>
+</body>
+</html>
