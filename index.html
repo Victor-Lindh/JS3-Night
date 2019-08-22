@@ -124,6 +124,24 @@
         opacity: 0;
         box-shadow: 3px 3px 5px whitesmoke;
     }
+    #plane{
+        height: 6px;
+        width: 16px;
+        background-color: black;
+        position: absolute;
+        bottom: 155px;
+        right: 6px;
+        border-radius: 20%;
+    }
+    #light{
+        width: 6px;
+        height: 3px;
+        background-color: red;
+        position: relative;
+        top: 3px;
+        left: 3px;
+        opacity: 0;
+    }
     .stars{
         background-color: gold;
         border-radius: 100%;
@@ -159,6 +177,9 @@
         <div id="star15" class="stars stargroup1"></div>
         <div id="moon"></div>
         <div id="shooter"></div>
+        <div id="plane">
+            <div id="light"></div>
+        </div>
     </div>
 
 <script src="anime.min.js"></script>
@@ -208,13 +229,6 @@ keyframes: [
 ],
 loop: 4,
 duration: 60000,
-translateX: [
-    {
-        value: 150, 
-    },{
-        value: 800,
-    }
-],
 translateX: 1200,
 translateY: [
     {
@@ -242,6 +256,33 @@ anime({
     easing: 'easeInSine',
     loop: 10
 })
+// -----------------------------------------------------
+                                // Flygplan
+// -----------------------------------------------------
+
+anime({
+        targets: '#plane',
+        translateX: -1400, 
+        duration: 30000,
+        easing: 'linear',
+        loop: true,
+})
+anime({      
+targets: '#light',
+keyframes: [
+    {opacity: '1', duration: 1500},
+    {opacity: '0', duration: 600},
+    {opacity: '1', duration: 1500},
+    {opacity: '0', duration: 600},
+],
+easing: 'easeInOutSine',
+loop: true
+})
+    
+
+// -----------------------------------------------------
+                                // Text
+// -----------------------------------------------------
     anime({
         targets: '#text',
         opacity: 0,
