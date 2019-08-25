@@ -94,14 +94,56 @@
         left: 30px;
     }
     #star14{
-
         top: 125px;
         right: 624px;
     }
     #star15{
-
         top: 158px;
         right: 135px;
+    }
+    #star16{
+        top: 138px;
+        right: 409px;
+    }
+    #star17{
+        top: 158px;
+        right: 500px;
+    }
+    #star18{
+        top: 108px;
+        right: 334px;
+    }
+    #star19{
+        top: 168px;
+        right: 250px;
+    }
+    #star20{
+        top: 55px;
+        right: 375px;
+    }
+    #star21{
+        top: 68px;
+        right: 735px;
+    }
+    #star22{
+        top: 127px;
+        left: 235px;
+    }
+    #star23{
+        top: 89px;
+        right: 852px;
+    }
+    #star24{
+        top: 153px;
+        right: 785px;
+    }
+    #star25{
+        top: 38px;
+        right: 669px;
+    }
+    #star26{
+        top: 138px;
+        right: 445px;
     }
     #moon{
         background-image: linear-gradient(whitesmoke, lightgrey, grey, 0.2);
@@ -142,6 +184,36 @@
         left: 3px;
         opacity: 0;
     }
+    .clouds{
+        opacity: 0.3;
+        border-radius: 40%;
+
+    }
+
+    #cloud1{
+        background-color: rgb(41, 38, 38);
+        width: 300px;
+        height: 30px;
+        position: absolute;
+        bottom: 165px;
+        left: 100px;
+    }
+    #cloud2{
+        background-color: rgb(41, 38, 38);
+        width: 100px;
+        height: 20px;
+        position: absolute;
+        bottom: 212px;
+        left: 380px;
+    }
+    #cloud3{
+        background-color: rgb(41, 38, 38);
+        width: 400px;
+        height: 40px;
+        position: absolute;
+        bottom: 180px;
+        left: 80px;
+    }
     .stars{
         background-color: gold;
         border-radius: 100%;
@@ -155,6 +227,11 @@
         width: 10px;
         height: 10px;
     }
+    .stargroup3{
+        width: 4px;
+        height: 4px;
+    }
+
 </style>
 </head>
 <body>
@@ -175,6 +252,22 @@
         <div id="star13" class="stars stargroup1"></div>
         <div id="star14" class="stars stargroup2"></div>
         <div id="star15" class="stars stargroup1"></div>
+        <div id="star16" class="stars stargroup3"></div>
+        <div id="star17" class="stars stargroup3"></div>
+        <div id="star18" class="stars stargroup3"></div>
+        <div id="star19" class="stars stargroup3"></div>
+        <div id="star20" class="stars stargroup3"></div>
+        <div id="star21" class="stars stargroup3"></div>
+        <div id="star22" class="stars stargroup3"></div>
+        <div id="star23" class="stars stargroup3"></div>
+        <div id="star24" class="stars stargroup3"></div>
+        <div id="star25" class="stars stargroup3"></div>
+        <div id="star26" class="stars stargroup3"></div>
+
+          <div class="clouds" id="cloud1"></div>
+          <div class="clouds"  id="cloud2"></div>
+          <div class="clouds"  id="cloud3"></div>
+        
         <div id="moon"></div>
         <div id="shooter"></div>
         <div id="plane">
@@ -203,7 +296,6 @@ background: '#FFFBC6',
 duration: 2000,
 boxShadow: '1px 1px 1px gold',
 
-
 })
 anime({
 targets: '.stargroup2',
@@ -211,7 +303,13 @@ loop: true,
 background: '#FFFBC6',
 duration: 1500,
 boxShadow: '2px 1px 2px gold',
-
+})
+anime({
+targets: '.stargroup3',
+loop: true,
+background: '#FFFBC6',
+duration: 1500,
+boxShadow: '2px 1px 2px gold',
 })
 
 
@@ -223,12 +321,12 @@ anime({
 targets: '#moon',
 delay: 3000,
 keyframes: [
-    {opacity: '0', duration: 5000},
-    {opacity: '1', duration: 30000},
     {opacity: '0', duration: 10000},
+    {opacity: '1', duration: 60000},
+    {opacity: '0', duration: 20000},
 ],
 loop: 4,
-duration: 60000,
+duration: 120000,
 translateX: 1200,
 translateY: [
     {
@@ -276,6 +374,17 @@ keyframes: [
     {opacity: '0', duration: 600},
 ],
 easing: 'easeInOutSine',
+loop: true
+})
+
+anime({
+targets: '.clouds',
+translateX: [100, 800],
+translateY:[100, -100],
+duration: 60000,
+easing: 'linear',
+delay: 5000,
+direction: 'alternate',
 loop: true
 })
     
